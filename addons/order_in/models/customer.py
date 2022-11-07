@@ -16,6 +16,7 @@ class OrderCustomer(models.Model):
         compute="_compute_age",
         inverse="_inverse_compute_age",
         tracking=True,
+        search="_search_age",
     )
     address = fields.Char(string="Address", required=True, tracking=True)
     phone = fields.Char(string="Phone", required=True, tracking=True)
@@ -39,6 +40,15 @@ class OrderCustomer(models.Model):
         "order.appointment", "customer_id", string="Appointments"
     )
     parent = fields.Char("Parent")
+
+    def _search_age(self, _, value):
+        date_of_birth = date.today() - relativedelta.relativedelta(years=value)
+        start_of_year = date_of_birth.replace(day=1, month=1)
+        end_of_year = date_of_birth.replace(day=31, month=12)
+        return [
+            ("date_of_birth", ">=", start_of_year),
+            ("date_of_birth", "<=", end_of_year),
+        ]
 
     @api.depends("appointment_ids")
     def _compute_appointment_count(self):

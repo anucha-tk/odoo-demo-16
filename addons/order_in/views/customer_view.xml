@@ -5,14 +5,14 @@
     <field name="model">order.customer</field>
     <field name="arch" type="xml">
       <tree export_xlsx="0">
-        <field name="name" />
-        <field name="address" />
-        <field name="email" />
-        <field name="phone" />
-        <field name="types" />
-        <field name="ref" />
-        <field name="active" invisible="1" />
-        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+        <field name="name"/>
+        <field name="address"/>
+        <field name="email"/>
+        <field name="phone"/>
+        <field name="types"/>
+        <field name="ref"/>
+        <field name="active" invisible="1"/>
+        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
       </tree>
     </field>
   </record>
@@ -22,39 +22,39 @@
     <field name="arch" type="xml">
       <form string="">
         <sheet>
-          <field name="image" widget="image" class="oe_avatar" />
+          <field name="image" widget="image" class="oe_avatar"/>
           <div class="oe_title">
             <h2>
-              <field name="ref" readonly="1" />
+              <field name="ref" readonly="1"/>
             </h2>
-            <label for="name" class="oe_edit_only" />
-            <field name="name" />
+            <label for="name" class="oe_edit_only"/>
+            <field name="name"/>
           </div>
           <group name="details" string="Details">
             <group>
-              <field name="address" />
-              <field name="types" />
-              <field name="date_of_birth" />
-              <field name="age" />
-              <field name="appointment_count" />
+              <field name="address"/>
+              <field name="types"/>
+              <field name="date_of_birth"/>
+              <field name="age"/>
+              <field name="appointment_count"/>
             </group>
             <group>
-              <field name="phone" />
-              <field name="email" />
-              <field name="active" invisible="1" />
-              <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+              <field name="phone"/>
+              <field name="email"/>
+              <field name="active" invisible="1"/>
+              <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </group>
           </group>
           <group name="infomation" string="Infomation">
             <group>
-              <field name="parent" attrs="{'invisible': [('age', '&gt;', 18)]}" />
+              <field name="parent" attrs="{'invisible': [('age', '&gt;', 18)]}"/>
             </group>
           </group>
         </sheet>
         <div class="oe_chatter">
-          <field name="message_follower_ids" widget="mail_followers" />
-          <field name="activity_ids" widget="mail_activity" />
-          <field name="message_ids" widget="mail_thread" />
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="activity_ids" widget="mail_activity"/>
+          <field name="message_ids" widget="mail_thread"/>
         </div>
       </form>
     </field>
@@ -64,19 +64,20 @@
     <field name="model">order.customer</field>
     <field name="arch" type="xml">
       <search>
-        <field name="name" />
-        <field name="address" />
-        <field name="email" />
-        <field name="phone" />
-        <filter name="filter_a" string="a" domain="[('address', '=', 'a')]" />
-        <filter name="filter_b" string="b" domain="[('address', '=', 'b')]" />
-        <separator />
-        <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]" />
+        <field name="name"/>
+        <field name="address"/>
+        <field name="email"/>
+        <field name="phone"/>
+        <field name="age"/>
+        <filter name="filter_a" string="a" domain="[('address', '=', 'a')]"/>
+        <filter name="filter_b" string="b" domain="[('address', '=', 'b')]"/>
+        <separator/>
+        <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]"/>
         <group expand="0" name="group_by_address" string="string">
-          <filter name="address" string="address" context="{'group_by': 'address'}" />
+          <filter name="address" string="address" context="{'group_by': 'address'}"/>
         </group>
         <searchpanel>
-          <field name="types" enable_counters="1" icon="fa-users" select="multi" />
+          <field name="types" enable_counters="1" icon="fa-users" select="multi"/>
         </searchpanel>
       </search>
     </field>
@@ -91,5 +92,5 @@
       <p class="o_view_nocontent_smiling_face"> Create your first patient </p>
     </field>
   </record>
-  <menuitem id="menu_customer" name="Customers" sequence="0" action="action_order_in" parent="menu_customer_master" />
+  <menuitem id="menu_customer" name="Customers" sequence="0" action="action_order_in" parent="menu_customer_master"/>
 </odoo>
