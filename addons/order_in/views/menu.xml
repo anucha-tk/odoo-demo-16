@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+        <menuitem id="menu_order_in_root" name="Order In" sequence="0" />
+
+        <menuitem id="menu_customer_master" name="Customer Details" sequence="0" parent="menu_order_in_root" />
+
+        <menuitem id="menu_appointment_master" name="Appointments" sequence="10" parent="menu_order_in_root" />
+
+        <menuitem id="menu_configuration_master" name="Configurations" sequence="20" parent="menu_order_in_root" />
+
+        <menuitem id="menu_cancel_appointment" name="Cancellation" sequence="30" parent="menu_appointment_master" action="action_cancel_appointment" />
+
+</odoo>

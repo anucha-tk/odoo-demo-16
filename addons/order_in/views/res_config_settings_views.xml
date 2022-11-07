@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+      <field name="name">res.config.settings.view.order_in</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('settings')]" position="inside">
+          <div class="app_settings_block" data-string="Order In" id="order_in" string="Order In" data-key="order_in">
+            <h2>Order In Management</h2>
+            <div class="row mt16 o_settings_container" id="order_in_setting">
+              <div class="col-12 col-lg-6 o_setting_box">
+                <div class="o_setting_left_pane"/>
+                <div class="o_setting_right_pane">
+                  <span class="o_form_label">Cancellation before</span>
+                  <div class="text-muted content-group mt16">
+                    <field name="cancel_days" class="text-center" style="width: 10%; min-width: 4rem;"/>
+                    <span> days</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+    <record id="order_in_config_settings_action" model="ir.actions.act_window">
+      <field name="name">Settings</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">res.config.settings</field>
+      <field name="view_mode">form</field>
+      <field name="target">inline</field>
+      <field name="context">{'module' : 'order_in', 'bin_size': False}</field>
+    </record>
+    <menuitem id="order_in_config_settings_menu" name="Setting" parent="order_in.menu_configuration_master" action="order_in_config_settings_action" sequence="0" groups="base.group_system"/>
+  </data>
+</odoo>

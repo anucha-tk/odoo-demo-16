@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+order_in.access.order.customer,access_order_customer,order_in.model_order_customer,base.group_user,1,1,1,1
+order_in.access.order.appointment,access_order_appointment,order_in.model_order_appointment,base.group_user,1,1,1,1
+order_in.access.appointment.pharmacy.lines,access_appointment_pharmacy_lines,order_in.model_appointment_pharmacy_lines,base.group_user,1,1,1,1
+order_in.access.tag,access_tag,order_in.model_tag,base.group_user,1,1,1,1
+order_in.cancel.appointment.wizard,access_cancel_appointment_wizard,order_in.model_cancel_appointment_wizard,base.group_user,1,1,1,1

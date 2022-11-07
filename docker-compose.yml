@@ -1,15 +1,17 @@
-version: '2'
+version: "2"
 services:
   db:
     image: postgres:15
     user: root
     environment:
       - POSTGRES_USER=odoo
-      - POSTGRES_PASSWORD=odoo16@2022      
+      - POSTGRES_PASSWORD=odoo16@2022
       - POSTGRES_DB=postgres
-    restart: always             # run as a service
+    restart: always # run as a service
+    ports:
+      - "5432:5432"
     volumes:
-        - ./postgresql:/var/lib/postgresql/data
+      - ./postgresql:/var/lib/postgresql/data
 
   odoo16:
     image: odoo:16
@@ -20,7 +22,9 @@ services:
       - "10016:8069"
       - "20016:8072" # live chat
     tty: true
-    command: --
+    # command: --
+    #! todo in production delete below this line
+    command: odoo -u order_in -d std-demo --dev=xml,reload
     environment:
       - HOST=db
       - USER=odoo
@@ -31,5 +35,4 @@ services:
       # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
-    restart: always             # run as a service
-    
+    restart: always # run as a service

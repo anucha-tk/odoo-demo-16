@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_tag_vip" model="tag">
+        <field name="name">VIP</field>
+    </record>
+    <record id="customer_tag_kid" model="tag">
+        <field name="name">Kid</field>
+    </record>
+    <record id="customer_tag_adult" model="tag">
+        <field name="name">Adult</field>
+    </record>
+</odoo>
