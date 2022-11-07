@@ -45,7 +45,7 @@
               <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </group>
           </group>
-          <group name="infomation" string="Infomation">
+          <group name="information" string="Information">
             <group>
               <field name="parent" attrs="{'invisible': [('age', '&gt;', 18)]}"/>
             </group>

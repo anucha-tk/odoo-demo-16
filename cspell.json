@@ -1,4 +1,13 @@
 {
   "language": "en",
-  "words": ["odoo", "venv", "hasclass", "ondelete", "relativedelta", "dateutil"]
+  "words": [
+    "odoo",
+    "venv",
+    "hasclass",
+    "ondelete",
+    "relativedelta",
+    "dateutil",
+    "searchpanel",
+    "nocontent"
+  ]
 }
