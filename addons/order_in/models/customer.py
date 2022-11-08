@@ -34,14 +34,17 @@ class OrderCustomer(models.Model):
     tag_ids = fields.Many2many("tag", string="tags")
     image = fields.Image("Image")
     appointment_count = fields.Integer(
-        compute="_compute_appointment_count", string="Appointment Count", store=True
+        compute="_compute_appointment_count",
+        string="Appointment Count",
+        store=True,
     )
     appointment_ids = fields.One2many(
         "order.appointment", "customer_id", string="Appointments"
     )
     parent = fields.Char("Parent")
 
-    def _search_age(self, _, value):
+    @staticmethod
+    def _search_age(_, value):
         date_of_birth = date.today() - relativedelta.relativedelta(years=value)
         start_of_year = date_of_birth.replace(day=1, month=1)
         end_of_year = date_of_birth.replace(day=31, month=12)

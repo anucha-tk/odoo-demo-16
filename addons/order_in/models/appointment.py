@@ -8,19 +8,35 @@ class OrderAppointment(models.Model):
     _description = "Order Appointment"
     _rec_name = "customer_id"
 
-    customer_id = fields.Many2one("order.customer", string="Customer", required=True, ondelete="cascade")
-    appointment_time = fields.Datetime(string="Appointment Time", required=True, default=fields.Datetime.now)
-    booking_date = fields.Date(string="Booking Date", required=True, default=fields.Date.context_today)
+    customer_id = fields.Many2one(
+        "order.customer",
+        string="Customer",
+        required=True,
+        ondelete="cascade",
+    )
+    appointment_time = fields.Datetime(
+        string="Appointment Time", required=True, default=fields.Datetime.now
+    )
+    booking_date = fields.Date(
+        string="Booking Date", required=True, default=fields.Date.context_today
+    )
     types = fields.Selection(string="customer_type", related="customer_id.types")
     ref = fields.Char(string="Reference", tracking=True)
     prescription = fields.Html(string="Prescription")
     state = fields.Selection(
-        [("draft", "Draft"), ("in_consultation", "In Consultation"), ("done", "Done"), ("cancel", "Cancel")],
+        [
+            ("draft", "Draft"),
+            ("in_consultation", "In Consultation"),
+            ("done", "Done"),
+            ("cancel", "Cancel"),
+        ],
         default="draft",
         tracking=True,
         string="Status",
     )
-    pharmacy_line_ids = fields.One2many("appointment.pharmacy.lines", "appointment_id", string="Pharmacy Lines")
+    pharmacy_line_ids = fields.One2many(
+        "appointment.pharmacy.lines", "appointment_id", string="Pharmacy Lines"
+    )
 
     @api.onchange("customer_id")
     def _onchange_customer_id(self):
