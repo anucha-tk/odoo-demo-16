@@ -29,6 +29,7 @@ class CancelAppointment(models.TransientModel):
         if allow_date < self.date_cancel:
             raise ValidationError(_(f"can't cancel after {allow_date}"))
         self.appointment_id.state = "cancel"
+        return {"type": "ir.actions.client", "tag": "reload"}
 
     @api.model
     def default_get(self, field):

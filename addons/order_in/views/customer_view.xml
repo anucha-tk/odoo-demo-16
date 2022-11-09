@@ -6,9 +6,10 @@
     <field name="arch" type="xml">
       <tree export_xlsx="0">
         <field name="name"/>
-        <field name="address"/>
+        <!-- <field name="address"/> -->
         <field name="email"/>
-        <field name="phone"/>
+        <!-- <field name="phone"/> -->
+        <field name="age" sum="Sum Age"/>
         <field name="types"/>
         <field name="ref"/>
         <field name="active" invisible="1"/>
