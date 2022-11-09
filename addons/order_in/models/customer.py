@@ -55,10 +55,18 @@ class OrderCustomer(models.Model):
 
     @api.depends("appointment_ids")
     def _compute_appointment_count(self):
-        for rec in self:
-            rec.appointment_count = self.env["order.appointment"].search_count(
-                [("customer_id", "=", rec.id)]
-            )
+        appointment_group = self.env["order.appointment"].read_group(
+            domain=[], fields=[], groupby=["customer_id"]
+        )
+        for appointment in appointment_group:
+            # get customer and appointment_count
+            customer_id = appointment.get("customer_id")[0]
+            appointment_count = appointment["customer_id_count"]
+            # get customer record
+            customer_rec = self.browse(customer_id)
+            customer_rec.appointment_count = appointment_count
+            self -= customer_rec
+        self.appointment_count = 0
 
     @api.constrains("date_of_birth")
     def _constrains_date_of_birth(self):

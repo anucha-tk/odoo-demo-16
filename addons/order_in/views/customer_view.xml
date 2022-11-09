@@ -12,6 +12,7 @@
         <field name="age" sum="Sum Age"/>
         <field name="types"/>
         <field name="ref"/>
+        <field name="appointment_count"/>
         <field name="active" invisible="1"/>
         <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
       </tree>
