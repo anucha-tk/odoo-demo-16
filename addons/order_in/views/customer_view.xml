@@ -40,8 +40,8 @@
               <field name="appointment_count"/>
             </group>
             <group>
-              <field name="phone"/>
-              <field name="email"/>
+              <field name="phone" widget="phone"/>
+              <field name="email" widget="email"/>
               <field name="active" invisible="1"/>
               <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </group>
