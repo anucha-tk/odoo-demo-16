@@ -22,6 +22,7 @@
         "views/appointment_view.xml",
         "views/tag_view.xml",
         "views/res_config_settings_views.xml",
+        "views/operation_view.xml",
     ],
     "demo": [],
     "installable": True,

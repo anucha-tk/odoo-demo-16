@@ -37,6 +37,7 @@ class OrderAppointment(models.Model):
     pharmacy_line_ids = fields.One2many(
         "appointment.pharmacy.lines", "appointment_id", string="Pharmacy Lines"
     )
+    doctor_id = fields.Many2one("operation", string="Doctor")
 
     @api.onchange("customer_id")
     def _onchange_customer_id(self):

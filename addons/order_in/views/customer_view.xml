@@ -42,7 +42,7 @@
               <field name="phone"/>
               <field name="email"/>
               <field name="active" invisible="1"/>
-              <field name="tag_ids" widget="many2many_checkboxes" options="{'color_field': 'color'}"/>
+              <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </group>
           </group>
           <group name="information" string="Information">
