@@ -24,6 +24,11 @@
     <field name="arch" type="xml">
       <form string="">
         <sheet>
+          <div class="oe_button_box" name="button_box">
+            <button class="oe_stat_button" type="object" name="action_view_appointments" icon="fa-star">
+              <field string="Appointment" name="appointment_count" widget="statinfo"/>
+            </button>
+          </div>
           <field name="image" widget="image" class="oe_avatar"/>
           <div class="oe_title">
             <h2>
@@ -38,7 +43,6 @@
               <field name="types"/>
               <field name="date_of_birth"/>
               <field name="age"/>
-              <field name="appointment_count"/>
             </group>
             <group>
               <field name="phone" widget="phone"/>

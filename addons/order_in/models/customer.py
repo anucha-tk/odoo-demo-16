@@ -111,3 +111,15 @@ class OrderCustomer(models.Model):
 
     def name_get(self):
         return [(record.id, "[%s] %s" % (record.ref, record.name)) for record in self]
+
+    def action_view_appointments(self):
+        """show appointment_count form header button"""
+        return {
+            "name": _("Appointments"),
+            "res_model": "order.appointment",
+            "view_mode": "list,form",
+            "context": {},
+            "domain": [("customer_id", "=", self.id)],
+            "target": "current",
+            "type": "ir.actions.act_window",
+        }
