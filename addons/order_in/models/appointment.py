@@ -83,7 +83,9 @@ class AppointmentPharmacyLines(models.Model):
 
     product_id = fields.Many2one("product.product", string="product", required=True)
     quantity = fields.Float(string="Quantity", required=True, default=1)
-    price_unit = fields.Float(related="product_id.list_price")
+    price_unit = fields.Float(
+        related="product_id.list_price", string="Price", digits="Product Price"
+    )
     appointment_id = fields.Many2one("order.appointment", string="Appointment")
     currency_id = fields.Many2one("res.currency", related="appointment_id.currency_id")
     price_subtotal = fields.Monetary(
